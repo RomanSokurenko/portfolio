@@ -103,8 +103,87 @@ main {
   overflow: hidden;
 }
 
-.burger {
+.burger__btn {
+  display: block;
+  position: absolute;
+  right: -20px;
+  top: -10px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 69px;
+  height: 69px;
+  font-size: 0;
+  box-shadow: none;
+  cursor: pointer;
+  z-index: 10;
   display: none;
+}
+
+.burger__btn span {
+  display: block;
+  position: absolute;
+  top: 39px;
+  left: 17px;
+  right: 18px;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+.burger__btn span::after,
+.burger__btn span::before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.burger__btn span::after {
+  top: -10px;
+}
+
+.burger__btn span::before {
+  bottom: -10px;
+}
+
+.burger__btn-line span {
+  transition: all 0.5s;
+}
+
+.burger__btn-line span::after,
+.burger__btn-line span::before {
+  transition-duration: 0.3s, 0.3s;
+  transition-delay: 0.3s, 0;
+}
+
+.burger__btn-line::after {
+  transition-property: top, transform;
+}
+
+.burger__btn-line::before {
+  transition-property: button, transform;
+}
+
+.burger__btn-line.is-active span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.burger__btn-line.is-active span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+.burger__btn-line.is-active span {
+  background: none;
+}
+
+.burger__btn-line.is-active span::after,
+.burger__btn-line.is-active span::before {
+  transition-delay: 0 0.3s;
 }
 
 .title {
@@ -762,13 +841,14 @@ label span {
 /* АДАПТИВ */
 
 /* DESKTOP*/
+
 @media (max-width: 1024px) {
   main {
     padding-top: 50px;
   }
 
-  .logo,
-  .burger {
+  .logo {
+    /* .burger { */
     z-index: 10;
   }
 
@@ -776,19 +856,19 @@ label span {
     padding-top: 15px;
   }
 
-  .burger {
+  .burger__btn {
     display: block;
   }
 
   .header__title {
-    font-size: 28px;
+    font-size: 48px;
     line-height: 130%;
-    max-width: 345px;
+    font-weight: normal;
   }
 
   .header__profession {
     font-weight: bold;
-    font-size: 40px;
+    font-size: 60px;
     line-height: 130%;
   }
 
@@ -908,10 +988,6 @@ label span {
     max-width: 100%;
   }
 
-  .services__list {
-    background-color: cornflowerblue;
-  }
-
   .services__text {
     font-size: 23px;
   }
@@ -924,15 +1000,47 @@ label span {
     padding: 0;
   }
 
+  img {
+    max-width: 86%;
+  }
+
+  .logo img {
+    max-width: 70%;
+  }
+
   .menu {
     padding-bottom: 165%;
   }
 
   .about,
-  .skills,
   .services {
     text-align: center;
     padding-bottom: 50px;
+    padding-top: 50px;
+  }
+
+  .skills {
+    padding-top: 50px;
+  }
+
+  .about__text p {
+    font-size: 16px;
+  }
+
+  .about__text p:not(:last-child) {
+    margin-bottom: 19px;
+  }
+
+  .header__title {
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 130%;
+  }
+
+  .header__profession {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 130%;
   }
 
   .title {
@@ -951,11 +1059,11 @@ label span {
 
   .skills__info {
     display: block;
-    padding-bottom: 50px;
+    padding-bottom: 49px;
   }
 
   .skills__img {
-    margin: 0 0 30px;
+    margin: 0 0 22px;
   }
 
   .skills__text {
@@ -971,14 +1079,28 @@ label span {
   }
 
   .skills__item:not(:last-child) {
-    margin: 0 0 24px;
+    margin: 0 0 21px;
+  }
+
+  .skills__list {
+    max-width: 85%;
   }
 
   .services__list {
     display: block;
+    margin-top: 53px;
+  }
+
+  .services__project {
+    text-align: left;
+  }
+
+  .services__project:not(:last-child) {
+    margin: 0 0 83px;
   }
 
   .services__text {
+    margin: 0;
     font-weight: 600;
     font-size: 20px;
     line-height: 130%;
@@ -986,13 +1108,27 @@ label span {
     text-align: left;
   }
 
-  .services__content p {
+  .services__content {
     font-size: 16px;
     line-height: 160%;
-    text-align: left;
+  }
+
+  .services__text--code::after {
+    background-image: url(../images/code-mobile.svg);
+    background-repeat: no-repeat;
+  }
+
+  .services__text--dev-icon::after {
+    background-image: url(../images/dev-mobile.svg);
+    background-repeat: no-repeat;
+  }
+
+  .services__text--chat-icon::after {
+    background-image: url(../images/chat-mobile.svg);
+    background-repeat: no-repeat;
   }
 
   .services__text::after {
-    top: -67px;
+    top: -47px;
   }
 }
