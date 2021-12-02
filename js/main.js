@@ -1,8 +1,8 @@
 $(function () {
-  $(".burger__btn").on("click", function () {
-    $(".burger__btn").toggleClass("is-active");
+  $(".burger__line").on("click", function () {
+    $(".burger__line").toggleClass("burger--active");
   });
-  $(".burger__btn").on("click", function () {
+  $(".burger__line").on("click", function () {
     $(".menu").toggleClass("menu--active");
   });
   var mixer = mixitup(".content");
