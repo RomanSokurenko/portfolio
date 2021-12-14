@@ -37,7 +37,8 @@ ul {
 }
 
 img {
-  /* display: block; */
+  /* display: block;   я не помню ты говорил или нет ставить 
+  !!! но если я его ставлю то он мне потом немного ламает */
   max-width: 100%;
 }
 
@@ -112,6 +113,7 @@ main {
   display: none;
   z-index: 10;
 }
+
 .burger__line,
 .burger__line:before,
 .burger__line:after {
@@ -122,15 +124,18 @@ main {
   display: block;
   transition: 0.3s;
 }
+
 .burger__line:before {
   content: "";
   top: -10px;
   transition: top 300ms 300ms, transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .burger__line {
   top: 20px;
   right: -5px;
 }
+
 .burger__line:after {
   content: "";
   bottom: -10px;
@@ -144,6 +149,7 @@ main {
   transition: top 300ms,
     transform 300ms 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+
 .burger__line.burger--active:after {
   content: "";
   bottom: 0;
@@ -151,6 +157,7 @@ main {
   transition: bottom 300ms,
     transform 300ms 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+
 .burger__line.burger--active {
   background-color: unset;
 }
@@ -203,6 +210,33 @@ main {
   align-items: center;
   position: relative;
   z-index: 10;
+}
+
+.header__fixed {
+  position: fixed;
+  justify-content: space-evenly;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #7792e0;
+  z-index: 20;
+  animation-name: show__header;
+  animation-duration: 1s;
+}
+
+/* .header__fixed .header__nav {
+  padding-bottom: 50px;
+} */
+
+@keyframes show__header {
+  0% {
+    opacity: 0;
+    top: -70px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
 }
 
 .logo {
@@ -263,7 +297,9 @@ main {
   margin-bottom: auto;
   margin-right: auto;
   max-width: 630px;
+  font-weight: normal;
   font-size: 48px;
+  line-height: 130%;
 }
 
 .header__profession {
@@ -320,6 +356,7 @@ main {
 .about {
   background-color: #ffffff;
   padding-bottom: 140px;
+  padding-top: 140px;
 }
 
 .about__text p {
@@ -437,6 +474,7 @@ main {
 .portfolio {
   text-align: center;
   margin-bottom: 140px;
+  padding-top: 140px;
 }
 
 .filter {
@@ -546,15 +584,15 @@ main {
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
-
   color: #2352de;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 .quote__coment {
   font-style: italic;
   font-weight: 300;
   font-size: 24px;
+  line-height: 130%;
 }
 
 .video {
@@ -638,6 +676,7 @@ main {
 
 .indicatios__item span {
   display: block;
+  margin: auto;
 }
 
 .indicatios__item::after {
@@ -666,10 +705,6 @@ main {
   background-image: url(../images/review.svg);
 }
 
-/* .indicatios__item:not(:last-child) {
-  margin-right: 17px;
-} */
-
 .indicatios__title {
   font-size: 18px;
   line-height: 130%;
@@ -696,10 +731,6 @@ main {
   margin-bottom: 140px;
 }
 
-/* .address__link {
-  display: block;
-} */
-
 .address__text {
   line-height: 160%;
   margin-bottom: 30px;
@@ -716,28 +747,29 @@ main {
   display: flex;
 }
 
-.social__link {
+.social__item {
   margin-right: 20px;
   transition: box-shadow 0.5s, opacity 0.5s;
   width: 44px;
   height: 44px;
+  cursor: pointer;
 }
 
-.social__link:not(:last-child) {
+.social__item:not(:last-child) {
   margin-right: 20px;
 }
 
-.social__link:focus {
+.social__item:focus {
   box-shadow: 0 0 0 2px rgba(35, 82, 222, 0.5);
   border-radius: 3px;
   outline: 0;
 }
 
-.social__link:hover {
+.social__item:hover {
   opacity: 0.7;
 }
 
-.social__link:active {
+.social__item:active {
   box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
 }
@@ -765,6 +797,7 @@ main {
   line-height: 130%;
   width: 255px;
   margin-bottom: 31px;
+  margin-right: 15px;
   background-color: #f6f6f8;
   padding: 13px 15px;
 }
@@ -787,7 +820,6 @@ main {
 
 .footer {
   text-align: center;
-
   padding: 50px 0;
   background-color: #343740;
 }
@@ -910,13 +942,23 @@ main {
   }
 
   .indicatios__item {
-    margin-right: 20px;
+    width: calc((100% / 2) - 30px);
+    padding: 147px 16px 45px;
+    margin: 0 5px 45px;
+    display: flex;
+    flex-direction: column;
   }
 
   .indicatios__item::after {
     width: 70px;
     height: 70px;
     background-size: contain;
+    left: 33%;
+    top: 52px;
+  }
+
+  .contacts__top {
+    display: block;
   }
 }
 
@@ -993,6 +1035,7 @@ main {
   .services__text::after {
     top: -70px;
   }
+
   .about__text {
     text-align: left;
   }
@@ -1006,6 +1049,14 @@ main {
     padding-top: 80px;
     padding-bottom: 80px;
   }
+
+  .filter {
+    display: block;
+  }
+  .filter__item:not(:last-child) {
+    margin: 0 0 15px;
+  }
+
   .clients {
     position: relative;
   }
@@ -1014,6 +1065,7 @@ main {
     margin: 0;
     max-width: 700px;
   }
+
   .video {
     max-width: 80px;
     height: 80px;
@@ -1040,6 +1092,9 @@ main {
     margin-bottom: 52px;
   }
 
+  .indicatios {
+    flex-wrap: wrap;
+  }
   .contacts__top {
     display: block;
   }
@@ -1153,7 +1208,9 @@ main {
   }
 
   .services__project:not(:last-child) {
-    margin: 0 0 80px;
+    margin-left: auto;
+    margin-left: auto;
+    margin-bottom: 80px;
   }
 
   .services__text {
@@ -1195,6 +1252,7 @@ main {
   .filter__item:not(:last-child) {
     margin: 0 0 15px;
   }
+
   .filter__btn {
     font-weight: 600;
     font-size: 18px;
@@ -1224,6 +1282,7 @@ main {
   .portfolio {
     margin-bottom: 50px;
   }
+
   .reviews {
     padding-top: 50px;
     padding-bottom: 82px;
@@ -1237,6 +1296,7 @@ main {
     font-weight: 600;
     font-size: 20px;
     line-height: 130%;
+    margin-bottom: 20px;
   }
 
   .quote__coment {
@@ -1270,16 +1330,16 @@ main {
   .indicatios {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     margin-bottom: 10px;
     margin-top: 0;
   }
 
   .indicatios__item {
-    width: 165px;
-    padding: 66px 16px 3px;
-    height: 170px;
-    margin: 0 0 17px;
+    width: calc((100% / 2) - 10px);
+    padding: 66px 16px 35px;
+    margin: 0 5px 17px;
+    display: flex;
+    flex-direction: column;
   }
 
   .indicatios__title {
@@ -1312,10 +1372,11 @@ main {
   }
 
   .address {
-    margin-bottom: 69px;
+    margin-bottom: 30px;
   }
+
   .address__link {
-    margin-bottom: 9px;
+    margin-bottom: 19px;
   }
 
   .address__text {
@@ -1325,6 +1386,7 @@ main {
   .form {
     text-align: left;
   }
+
   .message__title {
     font-weight: 600;
     font-size: 14px;
@@ -1334,6 +1396,7 @@ main {
   .message__textarea {
     padding: 19px 15px;
   }
+
   .form__input {
     margin-bottom: 12px;
   }
@@ -1343,8 +1406,8 @@ main {
   }
 }
 
-@media (max-width: 320px) {
+/* @media (max-width: 320px) {
   .indicatios__item {
     width: 140px;
   }
-}
+} */
